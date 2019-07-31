@@ -11,6 +11,7 @@ class App extends Component {
     loading: false
   }
 
+  // load first list of users
   async componentDidMount() {
     this.setState({
       loading: true
@@ -27,6 +28,7 @@ class App extends Component {
     })
   }
 
+  // load users based on text input from Search component
   searchUsers = async text => {
     this.setState({
       loading: true
@@ -43,12 +45,19 @@ class App extends Component {
     })
   }
 
+  // clear all users
+  clearUsers = () => this.setState({ users: [] })
+
   render() {
     return (
       <Fragment>
         <Navbar />
         <div className='container'>
-          <Search searchUsers={this.searchUsers} />
+          <Search
+            searchUsers={this.searchUsers}
+            clearUsers={this.clearUsers}
+            showClear={this.state.users.length > 0 ? true : false}
+          />
           <Users loading={this.state.loading} users={this.state.users} />
         </div>
       </Fragment>
