@@ -59,30 +59,24 @@ export class UserDetail extends Component {
               View {login} github profile
             </a>
             <ul>
-              <li>
-                {bio && (
-                  <Fragment>
-                    <strong>Bio: </strong>
-                    {bio}
-                  </Fragment>
-                )}
-              </li>
-              <li>
-                {blog && (
-                  <Fragment>
-                    <strong>Blog: </strong>
-                    {blog}
-                  </Fragment>
-                )}
-              </li>
-              <li>
-                {company && (
-                  <Fragment>
-                    <strong>Company: </strong>
-                    {blog}
-                  </Fragment>
-                )}
-              </li>
+              {bio && (
+                <li>
+                  <strong>Bio: </strong>
+                  {bio}
+                </li>
+              )}
+              {blog && (
+                <li>
+                  <strong>Blog: </strong>
+                  {blog}
+                </li>
+              )}
+              {company && (
+                <li>
+                  <strong>Company: </strong>
+                  {company}
+                </li>
+              )}
             </ul>
           </div>
         </div>
