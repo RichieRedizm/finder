@@ -5,13 +5,22 @@ class Search extends Component {
   state = {
     text: ''
   }
+
   onChange = e => this.setState({ [e.target.name]: e.target.value })
+
   onSubmit = e => {
     e.preventDefault()
-    this.props.searchUsers(this.state.text)
-    this.setState({
-      text: ''
-    })
+    if (this.state.text === '') {
+      this.props.setAlert(
+        'The search field is empty! Please enter some text.',
+        'light'
+      )
+    } else {
+      this.props.searchUsers(this.state.text)
+      this.setState({
+        text: ''
+      })
+    }
   }
   render() {
     const { showClear, clearUsers } = this.props
@@ -43,8 +52,9 @@ class Search extends Component {
 
 Search.propTypes = {
   searchUsers: PropTypes.func.isRequired,
-  clearUsers: PropTypes.func,
-  showClear: PropTypes.bool
+  clearUsers: PropTypes.func.isRequired,
+  showClear: PropTypes.bool.isRequired,
+  setAlert: PropTypes.func.isRequired
 }
 
 export default Search
