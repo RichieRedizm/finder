@@ -41,7 +41,7 @@ const UserDetail = ({
       <Link to={`/`} className='btn btn-light btn-sm my-1'>
         go back to search
       </Link>
-      <h1>{name} - User Details</h1>
+      <h1>{name && `${name} - `}User Details</h1>
       <div className='card grid-2'>
         <div className='all-center'>
           <img
