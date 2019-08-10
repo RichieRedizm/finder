@@ -19,6 +19,10 @@ export default (state, action) => {
     case GET_USER:
     case GET_REPOS:
     case CLEAR_USERS:
+      return {
+        ...state,
+        users: []
+      }
     case SET_LOADING:
       return {
         ...state,

@@ -12,7 +12,6 @@ import axios from 'axios'
 import GithubState from './context/github/GithubState'
 
 const App = () => {
-  const [users, setUsers] = useState([])
   const [user, setUser] = useState({})
   const [repos, setRepos] = useState([])
   const [loading, setLoading] = useState(false)
@@ -32,9 +31,6 @@ const App = () => {
   //   }
   //   fetchData()
   // }, [])
-
-  // clear all users
-  const clearUsers = () => setUsers([])
 
   // load individual user details
   const userDetails = async usename => {
@@ -78,11 +74,7 @@ const App = () => {
               path='/'
               render={props => (
                 <Fragment>
-                  <Search
-                    clearUsers={clearUsers}
-                    showClear={users.length > 0 ? true : false}
-                    setAlert={showAlert}
-                  />
+                  <Search setAlert={showAlert} />
                   <Users />
                 </Fragment>
               )}
